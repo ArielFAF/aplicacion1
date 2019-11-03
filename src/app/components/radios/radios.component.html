@@ -1,0 +1,9 @@
+<div *ngFor="let radio of radioList">
+    <h5>{{radio.Nombre}}</h5>
+<div>
+  <audio controls>
+    <source src={{radio.Url}} />
+      Su navegador no soporta este formato de audio. 
+    </audio>
+  </div>
+</div>

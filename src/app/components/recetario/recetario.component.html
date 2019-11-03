@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-body">
+    <form #busquedaForm="ngForm" (ngSubmit)="onSubmit()">
+      <!-- <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="productService.selectedProduct.$key"> -->
+      <div class="form-group" style="margin-bottom: 0%;">
+        <input type="text" name="name" #name="ngModel" style="width: 40%;" [(ngModel)]="busqueda"
+          placeholder="Filtrar busqueda...">
+        <!-- class="form-control" -->
+        <button style="margin-left: 1px" class="btn btn-secondary" type="submit">
+          <i class="fas fa-search"></i> Buscar
+        </button>
+
+        <button style="margin-left: 1px" class="btn btn-success" type="button" (click)="onNew()">
+          <i class="fas fa-plus"></i> Nueva
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-sm table-hover">
+      <tbody>
+        <tr *ngFor="let receta of recetasList">
+          <td style="width: 55%;">{{receta.nombre}}</td>
+          <td>
+            <a style="margin-left: 1px" class="btn btn-success text-white" (click)="onView(receta.nombre)">
+              <i class="fas fa-search"></i>
+            </a>
+            <a style="margin-left: 1px" class="btn btn-primary text-white" (click)="onEdit(receta.nombre)">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a style="margin-left: 1px" class="btn btn-danger text-white" (click)="onDelete(receta.nombre)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

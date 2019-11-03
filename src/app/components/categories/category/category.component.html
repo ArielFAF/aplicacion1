@@ -1,0 +1,31 @@
+<div class="card mt-1">
+  <div class="card-body">
+    <form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)">
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="categoryService.selectedCategory.$key">
+      <div class="form-group">
+        <input type="text" class="form-control" name="name" #name="ngModel" 
+          [(ngModel)]="categoryService.selectedCategory.name" placeholder="Agrega un nombre de categoria">
+
+          <!-- <input type="text" class="form-control" name="category" #category="ngModel" 
+          [(ngModel)]="categoryService.selectedCategory.category" placeholder="Agrega una categoria">
+
+          <input type="text" class="form-control" name="location" #location="ngModel" 
+          [(ngModel)]="categoryService.selectedCategory.location" placeholder="Agrega una localizacion"> -->
+
+          <input type="number" class="form-control" name="order" #order="ngModel" 
+          [(ngModel)]="categoryService.selectedCategory.order" placeholder="Agrega el orden">
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+          <i class="fas fa-plus-circle"></i> Agregar/Editar
+        </button>
+
+        <button style="margin-left: 5px" class="btn btn-secondary" type="reset" (click)="resetForm(categoryForm)">
+          <i class="fas fa-sync-alt"></i> Limpiar
+        </button>
+      </div>
+
+  </form>
+  </div>
+</div>

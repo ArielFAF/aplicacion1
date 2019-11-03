@@ -1,0 +1,21 @@
+<div class="card mt-1">
+  <div class="card-body">
+    <h6 class="text-center">Lista de Categorias</h6>
+    <table class="table table-sm table-hover">
+      <tbody>
+        <tr *ngFor="let category of categoryList">
+          <td>{{category.order}} - {{category.name}}</td>
+          <!-- <td>{{category.category}}</td> -->
+          <td>
+            <a class="btn btn-secondary text-white" (click)="onEdit(category)">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a style="margin-left: 5px" class="btn btn-danger text-white" (click)="onDelete(category.$key)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
