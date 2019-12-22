@@ -1,0 +1,21 @@
+<div class="card mt-1">
+  <div class="card-body">
+    <h6 class="text-center">Lista de Articulos</h6>
+    <table class="table table-sm table-hover">
+      <tbody>
+        <tr *ngFor="let article of articleList">
+          <td class="text-left">{{article.name}}</td>
+          <!-- <td>{{article.article}}</td> -->
+          <td>
+            <a class="btn btn-secondary text-white" (click)="onEdit(article)">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a style="margin-left: 5px" class="btn btn-danger text-white" (click)="onDelete(article.$key)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

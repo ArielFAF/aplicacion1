@@ -1,0 +1,30 @@
+<div class="card mt-1">
+  <div class="card-body">
+    <form #articleForm="ngForm" (ngSubmit)="onSubmit(articleForm)">
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="articleService.selectedArticle.$key">
+      <div class="form-group">
+        <input type="text" class="form-control" name="name" #name="ngModel"
+          [(ngModel)]="articleService.selectedArticle.name" placeholder="Agrega un nombre de articulo">
+
+        <select name="category_key" id="category_key" [(ngModel)]="articleService.selectedArticle.category_key"
+          #category_key="ngModel" class="form-cotrol" style="width: 100%;">
+          <!-- style="width: 45%"> -->
+          <option [ngValue]="category.$key" *ngFor="let category of categoryList">{{ category.name }}</option>
+        </select>
+        <!-- <input type="number" class="form-control" name="order" #order="ngModel" 
+          [(ngModel)]="categoryService.selectedCategory.order" placeholder="Agrega el orden"> -->
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+          <i class="fas fa-plus-circle"></i> Grabar
+        </button>
+
+        <button style="margin-left: 5px" class="btn btn-secondary" type="reset" (click)="resetForm(articleForm)">
+          <i class="fas fa-sync-alt"></i> Limpiar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

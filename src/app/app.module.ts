@@ -14,12 +14,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 //firebase 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 //componets
 import { ProductsComponent } from './components/products/products.component';
 import { ProductListComponent } from './components/products/product-list/product-list.component';
-import { ProductComponent } from './components/products/product/product.component'; 
+import { ProductComponent } from './components/products/product/product.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryComponent } from './components/categories/category/category.component';
 import { CategoryListComponent } from './components/categories/category-list/category-list.component';
@@ -30,21 +30,28 @@ import { RecetaComponent } from './components/recetario/receta/receta.component'
 //services
 import { ProductService } from './services/product.service';
 import { CategoryService } from './services/category.service';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleListComponent } from './components/articles/article-list/article-list.component';
+import { ArticleComponent } from './components/articles/article/article.component';
+import { ArticleService } from './services/article.service';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/products', pathMatch: 'full'},
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
-  { path: 'product-list', component: ProductListComponent }  ,
-  { path: 'categories', component: CategoriesComponent },  
+  { path: 'product-list', component: ProductListComponent },
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'articles', component: ArticlesComponent },
   { path: 'radios', component: RadiosComponent },
-  { path: 'recetario', 
-  children: [
-    {path: '', component: RecetarioComponent},
-    {
-      path: 'receta',
-      component: RecetaComponent
-    }
-  ]}
+  {
+    path: 'recetario',
+    children: [
+      { path: '', component: RecetarioComponent },
+      {
+        path: 'receta',
+        component: RecetaComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({
@@ -58,7 +65,10 @@ const appRoutes: Routes = [
     CategoryListComponent,
     RadiosComponent,
     RecetarioComponent,
-    RecetaComponent
+    RecetaComponent,
+    ArticlesComponent,
+    ArticleListComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +85,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     ProductService,
-    CategoryService
+    CategoryService,
+    ArticleService
   ],
   bootstrap: [AppComponent]
 })
