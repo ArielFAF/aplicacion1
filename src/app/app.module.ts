@@ -34,13 +34,17 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleListComponent } from './components/articles/article-list/article-list.component';
 import { ArticleComponent } from './components/articles/article/article.component';
 import { ArticleService } from './services/article.service';
+import { ListComponent } from './components/list/list.component';
+import { ListArticlesComponent } from './components/list/list-articles/list-articles.component';
+import { ArtListComponent } from './components/list/art-list/art-list.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '', redirectTo: '/list', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
   { path: 'product-list', component: ProductListComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'articles', component: ArticlesComponent },
+  { path: 'list', component: ListComponent },
   { path: 'radios', component: RadiosComponent },
   {
     path: 'recetario',
@@ -68,7 +72,10 @@ const appRoutes: Routes = [
     RecetaComponent,
     ArticlesComponent,
     ArticleListComponent,
-    ArticleComponent
+    ArticleComponent,
+    ListComponent,
+    ListArticlesComponent,
+    ArtListComponent
   ],
   imports: [
     BrowserModule,

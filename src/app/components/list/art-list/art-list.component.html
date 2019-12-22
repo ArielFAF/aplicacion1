@@ -1,0 +1,30 @@
+<div class="card mt-1">
+  <div class="card-body">
+    <form #artListForm="ngForm" (ngSubmit)="onSubmit(artListForm)">
+      <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="listService.selectedArticleList.$key">
+
+      <div class="form-group">
+        <label for="article_key">Articulo &nbsp;</label>
+        <select name="article_key" id="article_key" [(ngModel)]="listService.selectedArticleList.article_key"
+          #article_key="ngModel" class="form-cotrol" style="width: 75%;">
+          <option [ngValue]="article.$key" *ngFor="let article of articleList">{{ article.name }}</option>
+        </select>
+
+        <input type="text" class="form-control" name="comment" #comment="ngModel"
+          [(ngModel)]="listService.selectedArticleList.comment" placeholder="Agrega un comentario" maxlength="25">
+
+      </div>
+
+      <div class="form-group" style="margin-bottom: 0px !important;">
+        <button class="btn btn-primary" type="submit">
+          <i class="fas fa-plus-circle"></i> Grabar
+        </button>
+
+        <button style="margin-left: 5px" class="btn btn-secondary" type="reset" (click)="resetForm(artListForm)">
+          <i class="fas fa-sync-alt"></i> Limpiar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

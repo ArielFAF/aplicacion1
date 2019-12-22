@@ -1,0 +1,20 @@
+<div class="card mt-1">
+  <div class="card-body">
+    <h6 class="text-center">Lista de Articulos</h6>
+    <table class="table table-sm table-hover">
+      <tbody>
+        <tr *ngFor="let artList of articleList">
+          <td class="text-left">{{artList.name}} {{(artList.comment) ? '[' + artList.comment + ']' : ''}}</td>
+          <td style="width: 100px">
+            <a class="btn btn-secondary text-white" (click)="onEdit(artList)">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a style="margin-left: 5px" class="btn btn-danger text-white" (click)="onDelete(artList.$key)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
