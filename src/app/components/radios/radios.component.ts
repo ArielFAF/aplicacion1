@@ -12,6 +12,10 @@ import { Radio } from '../../models/radio';
   styleUrls: ['./radios.component.css']
 })
 export class RadiosComponent implements OnInit {
+
+  // mention your backend url directly here like below
+  fileSource:any = 'http://radio.solumedia.com.ar:8290/stream';
+
   radioList: Radio[];
 
   constructor(private radioService: RadioService) { }
